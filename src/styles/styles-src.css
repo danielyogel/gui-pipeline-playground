@@ -1,0 +1,172 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/base";
+ */
+@tailwind base;
+
+/**
+  * This injects any component classes registered by plugins.
+  *
+  * If using `postcss-import`, use this import instead:
+  *
+  * @import "tailwindcss/components";
+  */
+@tailwind components;
+
+/**
+  * Here you would add any of your custom component classes; stuff that you'd
+  * want loaded *before* the utilities so that the utilities could still
+  * override them.
+  *
+  * Example:
+  *
+  * .btn { ... }
+  * .form-input { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "components/buttons";
+  * @import "components/forms";
+  */
+
+/**
+  * This injects all of Tailwind's utility classes, generated based on your
+  * config file.
+  *
+  * If using `postcss-import`, use this import instead:
+  *
+  * @import "tailwindcss/utilities";
+  */
+@tailwind utilities;
+
+/**
+  * Here you would add any custom utilities you need that don't come out of the
+  * box with Tailwind.
+  *
+  * Example :
+  *
+  * .bg-pattern-graph-paper { ... }
+  * .skew-45 { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "utilities/background-patterns";
+  * @import "utilities/skew-transforms";
+  */
+
+@import '~antd/dist/antd.css';
+
+:root {
+  --bb-dark-purple: theme('colors.bb-dark-purple');
+  --bb-light-purple: theme('colors.bb-light-purple');
+}
+
+.bb-background-gardient-one {
+  background-image: linear-gradient(to right, theme('colors.bb-dark-purple') 20%, theme('colors.bb-light-purple'));
+}
+
+.bb-background-gardient-two {
+  background-image: linear-gradient(to bottom, theme('colors.bb-dark-purple') 20%, theme('colors.bb-light-purple'));
+}
+
+.bb-background-gardient-three {
+  background-image: linear-gradient(to bottom, theme('colors.bb-light-purple') 20%, theme('colors.bb-dark-purple'));
+}
+
+.bb-background-gardient-four {
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255) 20%, rgb(182, 182, 184));
+}
+
+.bb-shadow {
+  box-shadow: 1px 1px 7px 3px var(--bb-light-purple), 1px 1px 1px 1px var(--bb-dark-purple);
+}
+
+.bb-shadow-black,
+.hover\:bb-shadow-black {
+  box-shadow: 1px 1px 7px 3px rgba(59, 59, 59, 0.397), 1px 1px 1px 1px rgba(59, 59, 59, 0.397);
+  transition: box-shadow 0.2s ease-in;
+}
+
+.hover\:bb-shadow-black:hover {
+  box-shadow: 3px 3px 7px 3px rgba(59, 59, 59, 0.397), 2px 3px 2px 2px rgba(59, 59, 59, 0.397);
+}
+
+.hover:bb-background-gardient-two:hover {
+  background-image: linear-gradient(to bottom, theme('colors.bb-dark-purple') 20%, theme('colors.bb-light-purple'));
+}
+
+.bb-transition-all {
+  transition: 0.2s ease-in-out all;
+}
+
+.bb-transition-opacity {
+  transition: 0.2s ease-in-out opacity;
+}
+
+.bb-sidebar-transition {
+  transition: 0.5s ease left;
+}
+
+.bb-background-stripes {
+  background-color: #fff;
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+  background-image: linear-gradient(45deg, gray 25%, transparent 25%, transparent 75%, gray 75%, gray),
+    linear-gradient(45deg, gray 25%, transparent 25%, transparent 75%, gray 75%, gray);
+}
+
+.bb-slide-up {
+  animation: slide-up 0.3s ease-in-out;
+}
+
+.bb-slide-down-slow {
+  animation: slide-down 0.6s ease-in-out;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bb-fade-in-slow {
+  animation: fade-in 0.4s ease-out;
+}
+
+.bb-fade-in-fast {
+  animation: fade-in 0.2s ease-in;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+svg {
+  pointer-events: none;
+}
